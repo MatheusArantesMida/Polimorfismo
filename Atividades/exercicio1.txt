@@ -1,31 +1,41 @@
 ﻿using System;
-class Geometria
+
+namespace Polimorfismo
 {
-    public double CalcularArea(double lado)
+    internal class Program
     {
-        return lado * lado;
-    }
-    public double CalcularArea(double @base, double altura)
-    {
-        return @base * altura;
-    }
-    public double CalcularArea(double raio, bool isCirculo)
-    {
-        return Math.PI * raio * raio;
+        static void Main()
+        {
+            Geometria geometria = new Geometria();
+            Console.WriteLine(
+                $"Área do quadrado: {geometria.CalcularArea(4):F2}");
+
+            Console.WriteLine(
+                $"Área do retângulo: {geometria.CalcularArea(5, 3):F2}");
+
+            Console.WriteLine(
+                $"Área do círculo: {geometria.CalcularArea(2, true):F2}");
+        }
     }
 }
-class Program
+
+using System;
+
+namespace Polimorfismo
 {
-    static void Main()
+    internal class Geometria
     {
-        Geometria geometria = new Geometria();
-        Console.WriteLine(
-            $"Área do quadrado: {geometria.CalcularArea(4):F2}");
-
-        Console.WriteLine(
-            $"Área do retângulo: {geometria.CalcularArea(5, 3):F2}");
-
-        Console.WriteLine(
-            $"Área do círculo: {geometria.CalcularArea(2, true):F2}");
+        public double CalcularArea(double lado)
+        {
+            return lado * lado;
+        }
+        public double CalcularArea(double @base, double altura)
+        {
+            return @base * altura;
+        }
+        public double CalcularArea(double raio, bool isCirculo)
+        {
+            return Math.PI * raio * raio;
+        }
     }
 }

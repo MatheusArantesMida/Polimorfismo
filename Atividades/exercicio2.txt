@@ -1,0 +1,60 @@
+﻿using System;
+using System.Collections.Generic;
+
+namespace Polimorfismo
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            List<Funcionario> funcionarios = new List<Funcionario>
+        {
+            new Funcionario { Nome = "João Matheus", Salario = 350 },
+            new Gerente { Nome = "Erik", Salario = 600 },
+            new Desenvolvedor { Nome = "Froes", Salario = 200 }
+        };
+
+            foreach (Funcionario funcionario in funcionarios)
+            {
+                Console.WriteLine(
+                    $"{funcionario.Nome}: bônus anual de R$ " +
+                    $"{funcionario.CalcularBonusAnual():F2}");
+            }
+        }
+    }
+}
+
+namespace Polimorfismo
+{
+    internal class Funcionario
+    {
+        public string Nome { get; set; } = "";
+        public double Salario { get; set; }
+        public virtual double CalcularBonusAnual()
+        {
+            return Salario * 0.10;
+        }
+    }
+}
+
+namespace Polimorfismo
+{
+    internal class Gerente : Funcionario
+    {
+        public override double CalcularBonusAnual()
+        {
+            return Salario * 0.15 + 1000;
+        }
+    }
+}
+
+namespace Polimorfismo
+{
+    internal class Desenvolvedor : Funcionario
+    {
+        public override double CalcularBonusAnual()
+        {
+            return Salario * 0.12;
+        }
+    }
+}
