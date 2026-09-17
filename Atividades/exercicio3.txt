@@ -1,0 +1,74 @@
+﻿using System.Collections.Generic;
+
+namespace Polimorfismo
+{
+    internal class Program
+    {
+        static void Main()
+        {
+            List<Animal> animais = new List<Animal>
+        {
+            new Leao(),
+            new Macaco(),
+            new Cobra()
+        };
+
+            foreach (Animal animal in animais)
+            {
+                animal.EmitirSom();
+            }
+        }
+    }
+}
+
+using System;
+
+namespace Polimorfismo
+{
+    internal class Animal
+    {
+        public virtual void EmitirSom()
+        {
+            Console.WriteLine("Som de animal.");
+        }
+    }
+}
+
+using System;
+
+namespace Polimorfismo
+{
+    internal class Leao : Animal
+    {
+        public override void EmitirSom()
+        {
+            Console.WriteLine("Roar!");
+        }
+    }
+}
+
+using System;
+
+namespace Polimorfismo
+{
+    internal class Macaco : Animal
+    {
+        public override void EmitirSom()
+        {
+            Console.WriteLine("Ugh ugh aah aah!");
+        }
+    }
+}
+
+using System;
+
+namespace Polimorfismo
+{
+    internal class Cobra : Animal
+    {
+        public override void EmitirSom()
+        {
+            Console.WriteLine("Sssssss...");
+        }
+    }
+}
